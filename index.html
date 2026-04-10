@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 лет традиции ШОУ | 2006-2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .slide.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        
+        p, li {
+            font-size: 1.4em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        ul {
+            list-style: none;
+            max-width: 900px;
+        }
+        
+        li:before {
+            content: "💨 ";
+            margin-right: 10px;
+        }
+        
+        .year {
+            font-size: 5em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+            margin: 20px 0;
+        }
+        
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        button:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.1);
+        }
+        
+        .counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            font-size: 1.2em;
+        }
+        
+        .emoji {
+            font-size: 6em;
+            margin: 20px;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+        }
+        
+        .timeline-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #ffd700;
+            backdrop-filter: blur(10px);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 1.8em;
+            color: #ffeb3b;
+            margin-top: 10px;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .spinner {
+            animation: spin 4s linear infinite;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="counter">
+            <span id="slideNumber">1</span> / <span id="totalSlides">17</span>
+        </div>
+        
+        <!-- Слайд 1: Титульный -->
+        <div class="slide active">
+            <div class="emoji spinner">💨</div>
+            <h1>ШОУ</h1>
+            <div class="year">2006 — 2026</div>
+            <p class="subtitle">20 лет легендарной традиции</p>
+            <p style="margin-top: 40px; font-size: 1.2em;">Презентация для настоящих ценителей</p>
+        </div>
+        
+        <!-- Слайд 2: Эпиграф -->
+        <div class="slide">
+            <h2>«Пердёж — это искусство,<br>доступное каждому»</h2>
+            <p style="font-style: italic; margin-top: 40px; font-size: 1.6em;">— Народная мудрость</p>
+            <div class="emoji" style="margin-top: 50px;">🎭</div>
+        </div>
+        
+        <!-- Слайд 3: Древний мир -->
+        <div class="slide">
+            <h2>🏛️ Истоки сортирного юмора</h2>
+            <h3>Древний мир</h3>
+            <ul>
+                <li><span class="highlight">Древняя Греция:</span> Аристофан в комедии «Облака» (423 г. до н.э.) посвятил целую сцену пердежу</li>
+                <li><span class="highlight">Древний Рим:</span> Император Клавдий издал эдикт, разрешающий пердеть за столом во время пиров</li>
+                <li><span class="highlight">Япония:</span> «Хэ-гассэн» (соревнование по пердежу) — популярное развлечение периода Эдо</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 4: Средневековье -->
+        <div class="slide">
+            <h2>⚔️ Средние века</h2>
+            <h3>Когда рыцари были смелыми</h3>
+            <ul>
+                <li><span class="highlight">Роланд Громовой Зад:</span> шут короля Генриха II, получавший поместье за ежегодное выступление с «прыжком, свистом и пердежом»</li>
+                <li><span class="highlight">«Турнир пердунов»:</span> популярный жанр средневековой литературы</li>
+                <li><span class="highlight">Монах Жозеф:</span> изгнан из монастыря за книгу «О пользе ветров телесных»</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 5: Возрождение -->
+        <div class="slide">
+            <h2>🎨 Эпоха Возрождения</h2>
+            <h3>Расцвет искусства и газов</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Литература</h3>
+                    <p>Франсуа Рабле посвятил целые главы «Гаргантюа и Пантагрюэля» пердежу</p>
+                </div>
+                <div class="card">
+                    <h3>Наука</h3>
+                    <p>Леонардо да Винчи изучал аэродинамику газов (подтверждено записями)</p>
+                </div>
+                <div class="card">
+                    <h3>Музыка</h3>
+                    <p>Моцарт написал канон «Leck mich im Arsch» (поцелуй меня в задницу)</p>
+                </div>
+                <div class="card">
+                    <h3>Театр</h3>
+                    <p>Шекспир упоминает пердёж в 12 пьесах</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Слайд 6: Новое время -->
+        <div class="slide">
+            <h2>🎩 Новое время</h2>
+            <h3>Эпоха просвещения и газообразования</h3>
+            <ul>
+                <li><span class="highlight">Бенджамин Франклин</span> написал эссе «Пердеж, гордо объясненный» (1781)</li>
+                <li><span class="highlight">Жозеф Пюжоль (Ле Петоман)</span> — звезда «Мулен Руж» конца XIX века, зарабатывавший пердежом больше, чем Сара Бернар</li>
+                <li><span class="highlight">Марк Твен</span> посвятил пердежу несколько рассказов</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 7: XX век -->
+        <div class="slide">
+            <h2>📺 XX век</h2>
+            <h3>Массовая культура</h3>
+            <ul>
+                <li>Пердящие подушки (1930-е) — хит продаж</li>
+                <li>«Blazing Saddles» (1974) — первый пердёж в голливудском кино</li>
+                <li>«South Park» возвёл пердёжный юмор в культ</li>
+                <li>Интернет создал бесконечное пространство для сортирного контента</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 8: Переход к истории ШОУ -->
+        <div class="slide">
+            <h2>🌟 И вот, в этой славной традиции...</h2>
+            <div class="emoji">🎯</div>
+            <p style="font-size: 2em; margin-top: 30px;">...родилось нечто особенное</p>
+            <p style="font-size: 1.5em; margin-top: 20px; color: #ffd700;">Лето 2006 года</p>
+        </div>
+        
+        <!-- Слайд 9: Рождение традиции -->
+        <div class="slide">
+            <h2>🏕️ Детский лагерь «Солнечный»</h2>
+            <p class="subtitle">Город Ковров, Владимирская область</p>
+            <div class="year">2006</div>
+            <ul style="margin-top: 30px;">
+                <li>Смена: незабываемая</li>
+                <li>Погода: летняя</li>
+                <li>Настроение: игривое</li>
+                <li>Игра: Need for Speed Underground 2</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 10: NFS Underground 2 -->
+        <div class="slide">
+            <h2>🏎️ Need for Speed Underground 2</h2>
+            <h3>Технические истоки</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Sprite Show</h3>
+                    <p>Функция впрыска азота</p>
+                    <p style="color: #ffd700; margin-top: 10px;">↓</p>
+                    <p>Выброс «пара» из выхлопной трубы</p>
+                </div>
+                <div class="card">
+                    <h3>Ассоциация</h3>
+                    <p>«Пар» из машины</p>
+                    <p style="color: #ffd700; margin-top: 10px;">≈</p>
+                    <p>«Пар» из тела</p>
+                </div>
+            </div>
+            <p style="font-size: 1.8em; margin-top: 40px; color: #ffd700;">Так родилось слово «ШОУ»!</p>
+        </div>
+        
+        <!-- Слайд 11: Правила -->
+        <div class="slide">
+            <h2>📜 Основные правила</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Правило 1</h3>
+                    <p>Перед тем как пёрнуть, обязательно говори «ШОУ»</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Правило 2</h3>
+                    <p>Не сказал «ШОУ» — получаешь пиздюлей по заднице</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Правило 3</h3>
+                    <p>Традиция священна</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Правило 4</h3>
+                    <p>Правила 1-3 не обсуждаются</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Слайд 12: Развитие 2006-2010 -->
+        <div class="slide">
+            <h2>📈 Развитие традиции</h2>
+            <h3>2006-2010: Становление</h3>
+            <ul>
+                <li>Первые адепты осваивают технику</li>
+                <li>Формируется культура предупреждения</li>
+                <li>Снижение количества «несанкционированных» на 87%</li>
+                <li>«ШОУ» становится частью обыденной речи</li>
+                <li>Первые легенды о забывших сказать «ШОУ»</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 13: 2011-2015 -->
+        <div class="slide">
+            <h2>📈 Развитие традиции</h2>
+            <h3>2011-2015: Золотой век</h3>
+            <ul>
+                <li>Традиция проникает во все сферы жизни</li>
+                <li>«ШОУ» в университетах, на работе, в отношениях</li>
+                <li>Появление производных: «мини-шоу», «гранд-шоу»</li>
+                <li>Формирование философии «ШОУ как образ жизни»</li>
+                <li>Традиция переживает первых скептиков</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 14: 2016-2020 -->
+        <div class="slide">
+            <h2>📈 Развитие традиции</h2>
+            <h3>2016-2020: Зрелость</h3>
+            <ul>
+                <li>10-летний юбилей (2016) — первое официальное празднование</li>
+                <li>Традиция проходит проверку взрослой жизнью</li>
+                <li>«ШОУ» объединяет на расстоянии</li>
+                <li>Пандемия 2020: «ШОУ» по видеосвязи</li>
+                <li>Традиция доказывает свою неуязвимость</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 15: 2021-2026 -->
+        <div class="slide">
+            <h2>📈 Развитие традиции</h2>
+            <h3>2021-2026: Путь к юбилею</h3>
+            <ul>
+                <li>Традиция переживает двадцатилетие дружбы</li>
+                <li>Новые поколения узнают о «ШОУ»</li>
+                <li>«ШОУ» как символ единства</li>
+                <li>Подготовка к грандиозному юбилею</li>
+                <li>20 лет непрерывной истории!</li>
+            </ul>
+        </div>
+        
+        <!-- Слайд 16: Юбилей -->
+        <div class="slide">
+            <div class="emoji">🎉</div>
+            <h1>2026</h1>
+            <h2>20 ЛЕТ ТРАДИЦИИ «ШОУ»!</h2>
+            <div class="year">2006 — 2026</div>
+            <p style="font-size: 1.8em; margin-top: 30px;">От детского лагеря до сегодняшнего дня</p>
+            <p style="font-size: 1.5em; margin-top: 20px;">Мы пронесли это через годы!</p>
+        </div>
+        
+        <!-- Слайд 17: Финал -->
+        <div class="slide">
+            <h2>За «ШОУ»!</h2>
+            <div class="emoji">💨</div>
+            <ul style="font-size: 1.6em; margin-top: 30px;">
+                <li>За традиции, что нас объединяют</li>
+                <li>За дружбу, что длится десятилетия</li>
+                <li>За юмор, что не стареет</li>
+                <li>За следующие 20 лет!</li>
+            </ul>
+            <p style="font-size: 2.5em; margin-top: 50px; color: #ffd700;">ШОУ FOREVER! 💨</p>
+        </div>
+        
+        <div class="controls">
+            <button onclick="prevSlide()">← Назад</button>
+            <button onclick="nextSlide()">Вперёд →</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('slideNumber').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Навигация клавиатурой
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+        
+        // Навигация свайпом на мобильных
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
